@@ -12,8 +12,9 @@ npm run build && npm start   # production
 ```
 
 Deploys as-is to Vercel, Netlify or any Node host. Set `NEXT_PUBLIC_SITE_URL` to the real domain
-(for example `https://www.dotannelodge.com`) so canonical links, the sitemap and social previews point at it.
-Until then the site uses its Vercel address, https://dot-anne.vercel.app. Every push to `main` redeploys it automatically.
+if it ever changes, so canonical links, the sitemap and social previews point at it.
+The site lives at https://www.dotannehome.com (dotannehome.com redirects there). The old Vercel address,
+https://dot-anne.vercel.app, permanently redirects to it. Every push to `main` redeploys it automatically.
 
 ## Edit business details
 

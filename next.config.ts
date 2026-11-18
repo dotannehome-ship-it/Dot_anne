@@ -6,6 +6,17 @@ const nextConfig: NextConfig = {
     formats: ["image/avif", "image/webp"],
     minimumCacheTTL: 60 * 60 * 24 * 30,
   },
+  // Send visitors and search engines on the old Vercel address to the lodge's own domain.
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "dot-anne.vercel.app" }],
+        destination: "https://www.dotannehome.com/:path*",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {
