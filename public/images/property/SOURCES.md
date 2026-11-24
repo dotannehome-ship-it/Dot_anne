@@ -45,6 +45,9 @@ Before launch, confirm the lodge owns them or has the photographer's permission 
 - **/video/dot-anne-tour.mp4** (54 s) and its cover **/video/dot-anne-tour-poster.jpg**: the owner's promo video
   "Dot Anne Home Lodge - Promo 16x9 new.mp4" (2026-11-08), re-encoded to 1280x720 H.264 (about 8 MB, from 78 MB).
   The original is not in the repo.
+- 2026-11-24: the "Pool" line on the right-hand signboard (the lodge has no pool) is covered in every frame of the
+  opening (0-3.8 s) and closing (42-47.5 s) building shots, using the sign's own background from just to its right.
+  The sign was tracked against the building photo frame by frame. Scripts and tracking data: `.assets-src/video/`.
 
 ## Removed
 
