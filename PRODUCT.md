@@ -48,7 +48,7 @@ Confirmed by the owner (2026-10-26):
 Confirmed by the owner (2026-11-07):
 - Conference hall
 - Laundry
-(Signboards in the front photo also mention a restaurant, bar and pool: not confirmed, kept off the site.)
+(Signboards in the front photo also mention a restaurant and bar: not confirmed, kept off the site. There is no pool (owner, 2026-11-24): the "Pool" line on the right-hand signboard is covered in the front photo and the video cover image.)
 
 Confirmed by the owner (2026-11-02), visible in the new room photos:
 - Air conditioning

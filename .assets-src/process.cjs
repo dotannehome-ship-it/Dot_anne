@@ -22,12 +22,23 @@ const jobs = [
 // Blur the parked car's number plate (left, top, width, height in the original's pixels).
 const blurs = { parking: [80, 333, 90, 46] };
 
+// Cover text with a patch of plain background copied from elsewhere in the same photo:
+// [fromLeft, fromTop, width, height, toLeft, toTop] in the original's pixels.
+// lodge-front: the right-hand signboard lists "Pool"; the lodge has no pool (owner, 2026-11-24),
+// so that line is covered with the blank sign area just to its right.
+const covers = { 'lodge-front': [[1343, 764, 26, 11, 1316, 764]] };
+
 async function load(src, name) {
+  const layers = [];
+  if (blurs[name]) {
+    const [left, top, width, height] = blurs[name];
+    layers.push({ input: await sharp(src).extract({ left, top, width, height }).blur(9).toBuffer(), left, top });
+  }
+  for (const [fromLeft, fromTop, width, height, left, top] of covers[name] ?? []) {
+    layers.push({ input: await sharp(src).extract({ left: fromLeft, top: fromTop, width, height }).toBuffer(), left, top });
+  }
   const img = sharp(src).rotate();
-  if (!blurs[name]) return img;
-  const [left, top, width, height] = blurs[name];
-  const patch = await sharp(src).extract({ left, top, width, height }).blur(9).toBuffer();
-  return sharp(await img.composite([{ input: patch, left, top }]).toBuffer());
+  return layers.length ? sharp(await img.composite(layers).toBuffer()) : img;
 }
 
 (async () => {

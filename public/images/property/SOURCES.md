@@ -28,7 +28,7 @@ The owner confirmed the front photo shows the lodge as it stands today.
 | wall-art.jpg | Framed waterfall picture on a grey wall |
 
 Originals are in `.assets-src/owner-2026-11-07/` (gitignored: the parking original shows an unblurred number plate).
-Edits: plate blurred, recompressed. The share card `public/images/og.jpg` is rebuilt by `.assets-src/og.cjs`.
+Edits: plate blurred; on lodge-front.jpg the "Pool" line of the right-hand signboard is covered with blank sign background (the lodge has no pool, owner 2026-11-24); recompressed. The share card `public/images/og.jpg` is rebuilt by `.assets-src/og.cjs`.
 
 ## From the lodge's public Google Maps listing (collected 2026-10-26)
 
