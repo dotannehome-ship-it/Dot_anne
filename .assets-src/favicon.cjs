@@ -1,6 +1,6 @@
 // Builds the site icons Google and browsers use from src/app/icon.png (the lotus mark):
 // - src/app/icon.png      192x192, lotus cropped tighter so it reads at tiny sizes (Google prefers multiples of 48)
-// - src/app/favicon.ico   16, 32 and 48 px in one .ico (PNG-encoded entries)
+// - src/app/favicon.ico   48, 32 and 16 px in one .ico (PNG-encoded entries)
 // Run: node .assets-src/favicon.cjs
 const sharp = require("sharp");
 const fs = require("fs");
@@ -20,7 +20,8 @@ const source = path.join(__dirname, "logo", "icon-source.png");
 
   await sharp(base).resize(192, 192).png().toFile(path.join(app, "icon.png"));
 
-  const sizes = [16, 32, 48];
+  // 48px first: Next.js reads the first entry for the <link sizes> it emits, and Google wants 48x48 or larger.
+  const sizes = [48, 32, 16];
   const pngs = await Promise.all(sizes.map((n) => sharp(base).resize(n, n).png().toBuffer()));
   const header = Buffer.alloc(6 + 16 * sizes.length);
   header.writeUInt16LE(0, 0); // reserved
@@ -40,5 +41,5 @@ const source = path.join(__dirname, "logo", "icon-source.png");
     offset += pngs[i].length;
   });
   fs.writeFileSync(path.join(app, "favicon.ico"), Buffer.concat([header, ...pngs]));
-  console.log("icon.png 192x192 and favicon.ico (16/32/48) written");
+  console.log("icon.png 192x192 and favicon.ico (48/32/16) written");
 })();
